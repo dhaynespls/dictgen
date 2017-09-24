@@ -72,15 +72,15 @@ def main():
     special_char_two = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(',
                         ')', '-', '_', '=', '+']
 
+    # The dictionary text file we will write to
     with open('out.txt', 'w') as outfile:
-        with open('word_two.txt', 'r') as wordtwo:
-            # For every permutation, also print out all combinations
-            for product in itertools.product(word_one,
-                                             ['gmu', 'gmU', 'gMu', 'gMU', 'Gmu', 'GmU', 'GMu', 'GMU'],
-                                             digits, special_char_one,
-                                             special_char_two):
-                for permute in itertools.permutations(product, len(product)):
-                    outfile.write(''.join(permute) + '\n')
+        # For every product, also print out all permutations
+        for product in itertools.product(word_one,
+                                         ['gmu', 'gmU', 'gMu', 'gMU', 'Gmu', 'GmU', 'GMu', 'GMU'],
+                                         digits, special_char_one,
+                                         special_char_two):
+            for permute in itertools.permutations(product, len(product)):
+                outfile.write(''.join(permute) + '\n')
 
 if __name__ == "__main__":
     main()
