@@ -57,8 +57,14 @@ def main():
                         ')', '-', '_', '=', '+']
 
     with open('out.txt', 'w') as outfile:
-        # For every permutation, also print out all combinations
-        print("Hello World")
+        with open('word_two.txt', 'r') as wordtwo:
+            # For every permutation, also print out all combinations
+            for product in itertools.product(word_one,
+                                             [i.strip() for i in wordtwo],
+                                             digits, special_char_one,
+                                             special_char_two):
+                for permute in itertools.permutations(product, len(product)):
+                    outfile.write(''.join(permute) + '\n')
 
 def generate_word_permute(length):
     """
