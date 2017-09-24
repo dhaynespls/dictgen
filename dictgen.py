@@ -1,8 +1,6 @@
 """
 dictgen.py
 
-This is not efficient on memory at all.
-
 The WPA2 password hint is as follows:
 
 1) It contains two words/acronyms, one with 3 letters and the other with 4
@@ -76,8 +74,9 @@ def main():
     with open('out.txt', 'w') as outfile:
         # For every product, also print out all permutations
         for product in itertools.product(word_one,
-                                         ['gmu', 'gmU', 'gMu', 'gMU', 'Gmu', 'GmU', 'GMu', 'GMU'],
-                                         digits, special_char_one,
+                                         word_two,
+                                         digits,
+                                         special_char_one,
                                          special_char_two):
             for permute in itertools.permutations(product, len(product)):
                 outfile.write(''.join(permute) + '\n')
