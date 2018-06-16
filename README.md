@@ -1,2 +1,2 @@
 # dictgen
-A dictionary generator for CYSE 425. 
+A dictionary generator. 
